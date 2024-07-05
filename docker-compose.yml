@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres
+    container_name: PracticeDB
+    environment:
+      POSTGRES_DB: 'postgres'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
+    ports:
+      - 5555:5432
+
+
+  bot:
+    build:
+      context: .
+    container_name: PracticeBot
+
+    depends_on:
+      - db
+
+
+
